@@ -1,4 +1,4 @@
-# StartupSpy
+# StartupSpy（汉化版）
 
 > 一个现代化的 Windows 启动项管理器，使用 C# 与 WPF（.NET 8）构建
 
@@ -12,6 +12,18 @@ StartupSpy 是一款界面简洁、采用深色主题风格的 Windows 桌面应
 ---
 
 ![StartupSpy Screenshot](Screenshot.png)
+
+## 汉化说明
+
+本仓库是 [Arman-Ispiryan/StartupSpy](https://github.com/Arman-Ispiryan/StartupSpy) 的**简体中文汉化版**（fork 自上游，仅替换展示文本，程序逻辑与上游保持一致）。
+
+- **汉化范围**：界面文案、按钮、菜单、表单标签、占位符、提示与错误信息、通知、窗口标题、安装脚本、README 文档等所有面向用户的字符串均已中文化。
+- **保持不变**：命名空间、类名、变量名、枚举、注册表键、文件路径、配置键、API 字段、环境变量、第三方库调用等代码标识符一律原样保留。
+- **统一术语**：注册表 / 启动文件夹 / 计划任务 / 服务；安全 / 低 / 中 / 高 / 未知；发布者 / 路径 / 命令 / 风险等级 等。
+- **中文适配**：UTF-8 编码、中文字体回退（`Segoe UI, Microsoft YaHei`）、文本溢出处理（`TextTrimming` / `TextWrapping`）。
+- **预编译单文件可执行程序**：见本仓库 **Releases** 页面，提供两个版本：
+  - `StartupSpy-带net8.exe`：自包含单文件（内置 .NET 8 运行时），**免安装、双击即跑**，约 156 MB。
+  - `StartupSpy-无net8.exe`：依赖框架单文件，需本机已装 **.NET 8 桌面运行时**，体积仅约 1.5 MB。
 
 ## 功能特性
 
@@ -40,7 +52,7 @@ StartupSpy 是一款界面简洁、采用深色主题风格的 Windows 桌面应
 ### 构建与运行
 
 ```bash
-git clone https://github.com/yourusername/StartupSpy.git
+git clone https://github.com/billypala/StartupSpy.git
 cd StartupSpy
 dotnet build
 dotnet run
@@ -50,13 +62,21 @@ dotnet run
 
 ### 构建发布版可执行文件
 
+**方式一：自包含单文件（内置 .NET 8 运行时，免安装）**
+
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-输出为单个自包含 `.exe` 文件，位于 `bin/Release/net8.0-windows/win-x64/publish/StartupSpy.exe`。
-该 `.exe` 已内嵌 .NET 8 运行时与 WPF 原生依赖，首次运行时会自动解压原生库到临时目录，无需在目标机器安装 .NET。
-（若省略 `IncludeNativeLibrariesForSelfExtract`，WPF 的原生 DLL 会作为独立文件放在 `.exe` 旁边。）
+输出单个 `.exe`，位于 `bin/Release/net8.0-windows/win-x64/publish/StartupSpy.exe`。该 `.exe` 已内嵌 .NET 8 运行时与 WPF 原生依赖，首次运行自动解压原生库到临时目录，目标机无需安装 .NET。
+
+**方式二：依赖框架单文件（体积小，需本机已装 .NET 8 桌面运行时）**
+
+```bash
+dotnet publish -c Release -p:PublishSingleFile=true --self-contained false
+```
+
+> **WPF 重要提示**：必须加 `IncludeNativeLibrariesForSelfExtract=true`（方式一）才能打包为真正单文件；否则 WPF 原生 DLL 会作为独立文件放在 `.exe` 旁边。
 
 ---
 

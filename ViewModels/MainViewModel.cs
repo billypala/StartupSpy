@@ -126,7 +126,7 @@ namespace StartupSpy.ViewModels
             catch (Exception ex)
             {
                 StatusText = $"扫描错误：{ex.Message}";
-                MessageBox.Show($"扫描出错：{ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"扫描出错：{ex.Message}", "StartupSpy（汉化版）", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             finally
             {
@@ -173,7 +173,7 @@ namespace StartupSpy.ViewModels
                 if (System.IO.File.Exists(path))
                     System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{path}\"");
                 else
-                    MessageBox.Show("在磁盘上未找到该文件。", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("在磁盘上未找到该文件。", "StartupSpy（汉化版）", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch { }
         }
@@ -193,12 +193,12 @@ namespace StartupSpy.ViewModels
                 {
                     MessageBox.Show(
                         $"无法切换“{SelectedEntry.Name}”。\n\n这可能需要管理员权限，或该条目类型不支持切换。",
-                        "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        "StartupSpy（汉化版）", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"错误：{ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"错误：{ex.Message}", "StartupSpy（汉化版）", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

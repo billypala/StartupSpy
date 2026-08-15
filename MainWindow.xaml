@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="clr-namespace:StartupSpy.ViewModels"
     xmlns:conv="clr-namespace:StartupSpy.Converters"
-    Title="StartupSpy" Height="780" Width="1280"
+    Title="StartupSpy（汉化版）" Height="780" Width="1280"
     MinHeight="600" MinWidth="900"
     WindowStartupLocation="CenterScreen"
     Background="#0A0D14"
@@ -189,7 +189,7 @@
                             RenderOptions.BitmapScalingMode="HighQuality" />
                     </Border>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock Text="StartupSpy" FontSize="20" FontWeight="Bold"
+                        <TextBlock Text="StartupSpy（汉化版）" FontSize="20" FontWeight="Bold"
                             Foreground="White"
                         />
                         <TextBlock Text="Windows 启动项管理器" FontSize="11" Foreground="#475569"
@@ -696,7 +696,7 @@
                 <TextBlock Text="{Binding StatusText}" FontSize="11" Foreground="#334155"
                     VerticalAlignment="Center" />
                 <TextBlock Grid.Column="1"
-                    Text="StartupSpy v1.0  —  请以管理员身份运行以获取完全访问权限"
+                    Text="StartupSpy（汉化版）v1.0  —  请以管理员身份运行以获取完全访问权限"
                     FontSize="10" Foreground="#1E2535" VerticalAlignment="Center" />
             </Grid>
         </Border>

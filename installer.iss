@@ -1,11 +1,11 @@
 [Setup]
-AppName=StartupSpy
+AppName=StartupSpy（汉化版）
 AppVersion=1.0
 AppPublisher=Arman Ispiryan
 DefaultDirName={autopf}\StartupSpy
-DefaultGroupName=StartupSpy
+DefaultGroupName=StartupSpy（汉化版）
 OutputDir=installer
-OutputBaseFilename=StartupSpy_Setup
+OutputBaseFilename=StartupSpy汉化版_Setup
 SetupIconFile=app.ico
 Compression=lzma
 SolidCompression=yes
@@ -23,8 +23,8 @@ Source: "bin\Release\net8.0-windows\win-x64\publish\*"; DestDir: "{app}"; Flags:
 Source: "app.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\StartupSpy"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{app}\app.ico"
-Name: "{commondesktop}\StartupSpy"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{app}\app.ico"; Tasks: desktopicon
+Name: "{group}\StartupSpy（汉化版）"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{app}\app.ico"
+Name: "{commondesktop}\StartupSpy（汉化版）"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{app}\app.ico"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\StartupSpy.exe"; Description: "启动 StartupSpy"; Flags: shellexec nowait postinstall skipifsilent
+Filename: "{app}\StartupSpy.exe"; Description: "启动 StartupSpy（汉化版）"; Flags: shellexec nowait postinstall skipifsilent
