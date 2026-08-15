@@ -304,7 +304,7 @@ namespace StartupSpy.Services
                             IsEnabled = svc.Status == ServiceControllerStatus.Running,
                             Risk = AssessRisk(svc.ServiceName, filePath, imagePath),
                             Description = svc.DisplayName,
-                            StartupDelay = "On Boot"
+                            StartupDelay = "开机时"
                         });
                     }
                     catch { }
@@ -379,13 +379,13 @@ namespace StartupSpy.Services
 
         private string GetFilePublisher(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath)) return "Unknown";
+            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath)) return "未知";
             try
             {
                 var info = System.Diagnostics.FileVersionInfo.GetVersionInfo(filePath);
-                return string.IsNullOrWhiteSpace(info.CompanyName) ? "Unknown" : info.CompanyName;
+                return string.IsNullOrWhiteSpace(info.CompanyName) ? "未知" : info.CompanyName;
             }
-            catch { return "Unknown"; }
+            catch { return "未知"; }
         }
 
         private string GetFileDescription(string filePath)
@@ -404,7 +404,7 @@ namespace StartupSpy.Services
             var publisher = GetFilePublisher(filePath);
             if (KnownSafePublishers.Contains(publisher)) return RiskLevel.Safe;
             if (!File.Exists(filePath) && !string.IsNullOrEmpty(filePath)) return RiskLevel.High;
-            if (publisher == "Unknown") return RiskLevel.Unknown;
+            if (publisher == "未知") return RiskLevel.Unknown;
             var lName = name.ToLower();
             foreach (var kw in HighRiskKeywords)
                 if (lName.Contains(kw.ToLower())) return RiskLevel.Medium;

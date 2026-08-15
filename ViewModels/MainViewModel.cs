@@ -34,7 +34,7 @@ namespace StartupSpy.ViewModels
         private string _searchText = "";
         private string _selectedCategory = "All";
         private bool _isScanning;
-        private string _statusText = "Ready — click Scan to begin";
+        private string _statusText = "就绪 — 点击“扫描”开始";
         private int _totalCount;
         private int _highRiskCount;
         private int _unknownCount;
@@ -81,7 +81,7 @@ namespace StartupSpy.ViewModels
 
         public List<string> Categories { get; } = new()
         {
-            "All", "Registry", "Startup Folder", "Scheduled Task", "Service"
+            "All", "注册表", "启动文件夹", "计划任务", "服务"
         };
 
         public ICommand ScanCommand { get; }
@@ -103,14 +103,14 @@ namespace StartupSpy.ViewModels
                 var high = _allEntries.Where(e => e.Risk == RiskLevel.High || e.Risk == RiskLevel.Medium).ToList();
                 _filteredEntries.Clear();
                 foreach (var e in high) _filteredEntries.Add(e);
-                StatusText = $"Showing {high.Count} elevated-risk entries";
+                StatusText = $"正在显示 {high.Count} 个高风险启动项";
             });
         }
 
         private async void RunScan()
         {
             IsScanning = true;
-            StatusText = "Scanning startup entries...";
+            StatusText = "正在扫描启动项…";
             _allEntries.Clear();
             _filteredEntries.Clear();
             SelectedEntry = null;
@@ -121,12 +121,12 @@ namespace StartupSpy.ViewModels
                 _allEntries = new ObservableCollection<StartupEntry>(results.OrderByDescending(e => (int)e.Risk));
                 ApplyFilter();
                 UpdateStats();
-                StatusText = $"Scan complete — {_allEntries.Count} startup entries found";
+                StatusText = $"扫描完成 — 共发现 {_allEntries.Count} 个启动项";
             }
             catch (Exception ex)
             {
-                StatusText = $"Scan error: {ex.Message}";
-                MessageBox.Show($"Error scanning: {ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                StatusText = $"扫描错误：{ex.Message}";
+                MessageBox.Show($"扫描出错：{ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             finally
             {
@@ -173,7 +173,7 @@ namespace StartupSpy.ViewModels
                 if (System.IO.File.Exists(path))
                     System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{path}\"");
                 else
-                    MessageBox.Show("File not found on disk.", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("在磁盘上未找到该文件。", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch { }
         }
@@ -187,18 +187,18 @@ namespace StartupSpy.ViewModels
                 if (success)
                 {
                     SelectedEntry.IsEnabled = !SelectedEntry.IsEnabled;
-                    StatusText = $"{SelectedEntry.Name} {(SelectedEntry.IsEnabled ? "enabled" : "disabled")}";
+                    StatusText = $"{SelectedEntry.Name} {(SelectedEntry.IsEnabled ? "已启用" : "已禁用")}";
                 }
                 else
                 {
                     MessageBox.Show(
-                        $"Could not toggle '{SelectedEntry.Name}'.\n\nThis may require Administrator privileges, or this entry type does not support toggling.",
+                        $"无法切换“{SelectedEntry.Name}”。\n\n这可能需要管理员权限，或该条目类型不支持切换。",
                         "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"错误：{ex.Message}", "StartupSpy", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

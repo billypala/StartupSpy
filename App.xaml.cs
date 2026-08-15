@@ -14,7 +14,7 @@ namespace StartupSpy
                 File.WriteAllText(
                     Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "crash.log"),
                     msg);
-                MessageBox.Show(msg, "StartupSpy Crash", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(msg, "StartupSpy 崩溃", MessageBoxButton.OK, MessageBoxImage.Error);
             };
 
             DispatcherUnhandledException += (s, ex) =>
@@ -23,7 +23,7 @@ namespace StartupSpy
                 File.WriteAllText(
                     Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "crash.log"),
                     msg);
-                MessageBox.Show(msg, "StartupSpy Crash", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(msg, "StartupSpy 崩溃", MessageBoxButton.OK, MessageBoxImage.Error);
                 ex.Handled = true;
             };
 

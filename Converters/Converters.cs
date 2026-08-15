@@ -69,7 +69,7 @@ namespace StartupSpy.Converters
     public class BoolToEnabledTextConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            => value is bool b && b ? "Enabled" : "Disabled";
+            => value is bool b && b ? "已启用" : "已禁用";
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
     }
 

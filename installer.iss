@@ -16,7 +16,7 @@ ArchitecturesInstallIn64BitMode=x64
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "Create a desktop shortcut"; GroupDescription: "Additional icons:"
+Name: "desktopicon"; Description: "创建桌面快捷方式"; GroupDescription: "附加图标："
 
 [Files]
 Source: "bin\Release\net8.0-windows\win-x64\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -27,4 +27,4 @@ Name: "{group}\StartupSpy"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{ap
 Name: "{commondesktop}\StartupSpy"; Filename: "{app}\StartupSpy.exe"; IconFilename: "{app}\app.ico"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\StartupSpy.exe"; Description: "Launch StartupSpy"; Flags: shellexec nowait postinstall skipifsilent
+Filename: "{app}\StartupSpy.exe"; Description: "启动 StartupSpy"; Flags: shellexec nowait postinstall skipifsilent

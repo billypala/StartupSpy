@@ -36,24 +36,24 @@ namespace StartupSpy.Models
             set { _isEnabled = value; OnPropertyChanged(nameof(IsEnabled)); }
         }
         public string Description { get; set; } = "";
-        public string StartupDelay { get; set; } = "None";
+        public string StartupDelay { get; set; } = "无";
 
         public string CategoryLabel => Category switch
         {
-            StartupCategory.Registry => "Registry",
-            StartupCategory.StartupFolder => "Startup Folder",
-            StartupCategory.ScheduledTask => "Scheduled Task",
-            StartupCategory.Service => "Service",
-            _ => "Unknown"
+            StartupCategory.Registry => "注册表",
+            StartupCategory.StartupFolder => "启动文件夹",
+            StartupCategory.ScheduledTask => "计划任务",
+            StartupCategory.Service => "服务",
+            _ => "未知"
         };
 
         public string RiskLabel => Risk switch
         {
-            RiskLevel.Safe => "Safe",
-            RiskLevel.Low => "Low",
-            RiskLevel.Medium => "Medium",
-            RiskLevel.High => "High",
-            _ => "Unknown"
+            RiskLevel.Safe => "安全",
+            RiskLevel.Low => "低",
+            RiskLevel.Medium => "中",
+            RiskLevel.High => "高",
+            _ => "未知"
         };
 
         public event PropertyChangedEventHandler? PropertyChanged;
