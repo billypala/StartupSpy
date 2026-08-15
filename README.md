@@ -51,10 +51,12 @@ dotnet run
 ### 构建发布版可执行文件
 
 ```bash
-dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-输出为单个 `.exe` 文件，位于 `bin/Release/net8.0-windows/win-x64/publish/`。
+输出为单个自包含 `.exe` 文件，位于 `bin/Release/net8.0-windows/win-x64/publish/StartupSpy.exe`。
+该 `.exe` 已内嵌 .NET 8 运行时与 WPF 原生依赖，首次运行时会自动解压原生库到临时目录，无需在目标机器安装 .NET。
+（若省略 `IncludeNativeLibrariesForSelfExtract`，WPF 的原生 DLL 会作为独立文件放在 `.exe` 旁边。）
 
 ---
 
