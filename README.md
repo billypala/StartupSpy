@@ -52,7 +52,7 @@ StartupSpy 是一款界面简洁、采用深色主题风格的 Windows 桌面应
 ### 构建与运行
 
 ```bash
-git clone https://github.com/billypala/StartupSpy.git
+git clone https://github.com/billypala/StartupSpy-zh-CN.git
 cd StartupSpy
 dotnet build
 dotnet run
