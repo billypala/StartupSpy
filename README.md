@@ -11,7 +11,7 @@ StartupSpy 是一款界面简洁、采用深色主题风格的 Windows 桌面应
 
 ---
 
-![StartupSpy Screenshot](Screenshot.png)
+![StartupSpy 汉化版截图](Screenshot-zh.png)
 
 ## 汉化说明
 
