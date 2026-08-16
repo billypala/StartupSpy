@@ -22,8 +22,8 @@ StartupSpy 是一款界面简洁、采用深色主题风格的 Windows 桌面应
 - **统一术语**：注册表 / 启动文件夹 / 计划任务 / 服务；安全 / 低 / 中 / 高 / 未知；发布者 / 路径 / 命令 / 风险等级 等。
 - **中文适配**：UTF-8 编码、中文字体回退（`Segoe UI, Microsoft YaHei`）、文本溢出处理（`TextTrimming` / `TextWrapping`）。
 - **预编译单文件可执行程序**：见本仓库 **Releases** 页面，提供两个版本：
-  - `StartupSpy-带net8.exe`：自包含单文件（内置 .NET 8 运行时），**免安装、双击即跑**，约 156 MB。
-  - `StartupSpy-无net8.exe`：依赖框架单文件，需本机已装 **.NET 8 桌面运行时**，体积仅约 1.5 MB。
+  - `StartupSpy-nat8.exe`：自包含单文件（内置 .NET 8 运行时），**免安装、双击即跑**，约 156 MB。
+  - `StartupSpy-nonat8.exe`：依赖框架单文件，需本机已装 **.NET 8 桌面运行时**，体积仅约 1.5 MB。
 
 ## 功能特性
 
